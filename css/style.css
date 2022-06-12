@@ -201,6 +201,35 @@ h6 {
           align-items: center;
 }
 
+.header__content::after {
+  content: "";
+  -webkit-transition: all 0.5s ease 0s;
+  -o-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  opacity: 0;
+  z-index: 4;
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  -webkit-box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
+          box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
+  display: block;
+  left: 0;
+  top: 0;
+}
+
+@supports (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
+  .header__content::after {
+    height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem );
+  }
+}
+
+@supports not (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
+  .header__content::after {
+    height: calc(5.625rem + 1.5 * (100vw - 20rem) / 44.125);
+  }
+}
+
 @supports (min-height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
   .header__content {
     min-height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem );
@@ -268,7 +297,6 @@ h6 {
 }
 
 .menu__item {
-  background-color: #fff;
   z-index: 2;
   padding: 8px;
   border-radius: 20px;
@@ -284,27 +312,7 @@ h6 {
 
 .menu-open .header__content::after {
   content: "";
-  z-index: 4;
-  position: fixed;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  -webkit-box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
-          box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
-  display: block;
-  left: 0;
-  top: 0;
-}
-
-@supports (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
-  .menu-open .header__content::after {
-    height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem );
-  }
-}
-
-@supports not (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
-  .menu-open .header__content::after {
-    height: calc(5.625rem + 1.5 * (100vw - 20rem) / 44.125);
-  }
+  opacity: 1;
 }
 
 .menu-open .menu__body {
@@ -393,9 +401,9 @@ h6 {
 .health__body {
   background-color: #fff;
   border-radius: 30px;
-  padding: 0 10px 0 0;
+  padding: 15px 10px 0 0;
   z-index: 2;
-  margin: 76px 0px 0px 0px;
+  margin: 61px 0px 0px 0px;
   max-width: 500px;
 }
 
@@ -511,13 +519,6 @@ h6 {
   -webkit-transition: all 0.7s ease 0s;
   -o-transition: all 0.7s ease 0s;
   transition: all 0.7s ease 0s;
-  gap: 100px;
-  margin: 0 -200px;
-}
-
-.safe__content._watcher-view {
-  gap: 0px;
-  margin: 0 0px;
 }
 
 .safe__body {
@@ -888,8 +889,8 @@ h6 {
 }
 
 .experts__body {
-  margin: 51px 15px 0px 23px;
-  width: 393px;
+  margin: 51px 0px 0px 23px;
+  max-width: 393px;
 }
 
 .experts__title {
@@ -900,8 +901,6 @@ h6 {
   font-size: 12px;
   line-height: 138.5%;
   letter-spacing: 0.08em;
-  -webkit-font-feature-settings: "pnum" on, "lnum" on;
-          font-feature-settings: "pnum" on, "lnum" on;
   color: #616161;
   margin: 0px 0px 24px 0px;
 }
@@ -1193,6 +1192,10 @@ h6 {
     }
 }
 
+  .menu__item {
+    background-color: #fff;
+  }
+
   .menu__link {
     font-size: 13px;
     line-height: 12px;
@@ -1210,12 +1213,27 @@ h6 {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
+    gap: 100px;
+    margin: 0 -200px;
+  }
+
+  .safe__content._watcher-view {
+    gap: 0px;
+    margin: 0 0px;
   }
 }
 
 @media (min-width: 61.99875em) {
   .experts__video {
     padding: 25px 95px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__content {
+    -ms-grid-rows: 1fr;
+    -ms-grid-columns: 140px minmax(auto, 726px) 130px 60px;
+        grid-template: 1fr/140px minmax(auto, 726px) 130px 60px;
   }
 }
 
@@ -1294,12 +1312,6 @@ h6 {
 }
 
 @media (max-width: 47.99875em) {
-  .header__content {
-    -ms-grid-rows: 1fr;
-    -ms-grid-columns: 140px minmax(auto, 726px) 130px 60px;
-        grid-template: 1fr/140px minmax(auto, 726px) 130px 60px;
-  }
-
   .header__menu {
     -ms-grid-column: 4;
     -ms-grid-column-span: 1;
@@ -1388,6 +1400,18 @@ h6 {
 
   .health__button {
     margin: 0px 0px 20px 0px;
+  }
+
+  .safe__content {
+    -webkit-transform: translate(0, 200px);
+        -ms-transform: translate(0, 200px);
+            transform: translate(0, 200px);
+  }
+
+  .safe__content._watcher-view {
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 
 @supports (margin-bottom: clamp( 5rem , 4.1501416431rem  +  4.2492917847vw , 6.875rem )) {
