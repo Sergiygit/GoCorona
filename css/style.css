@@ -1403,15 +1403,15 @@ h6 {
   }
 
   .safe__content {
-    -webkit-transform: translate(0, 200px);
-        -ms-transform: translate(0, 200px);
-            transform: translate(0, 200px);
+    -webkit-transform: translate(50%, 0px);
+        -ms-transform: translate(50%, 0px);
+            transform: translate(50%, 0px);
   }
 
   .safe__content._watcher-view {
-    -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
-            transform: translate(0, 0);
+    -webkit-transform: translate(0, 0px);
+        -ms-transform: translate(0, 0px);
+            transform: translate(0, 0px);
   }
 
 @supports (margin-bottom: clamp( 5rem , 4.1501416431rem  +  4.2492917847vw , 6.875rem )) {
