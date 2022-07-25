@@ -201,35 +201,6 @@ h6 {
           align-items: center;
 }
 
-.header__content::after {
-  content: "";
-  -webkit-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
-  opacity: 0;
-  z-index: 4;
-  position: fixed;
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  -webkit-box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
-          box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
-  display: block;
-  left: 0;
-  top: 0;
-}
-
-@supports (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
-  .header__content::after {
-    height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem );
-  }
-}
-
-@supports not (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
-  .header__content::after {
-    height: calc(5.625rem + 1.5 * (100vw - 20rem) / 44.125);
-  }
-}
-
 @supports (min-height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
   .header__content {
     min-height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem );
@@ -1312,6 +1283,35 @@ h6 {
 }
 
 @media (max-width: 47.99875em) {
+  .header__content::after {
+    content: "";
+    -webkit-transition: all 0.5s ease 0s;
+    -o-transition: all 0.5s ease 0s;
+    transition: all 0.5s ease 0s;
+    opacity: 0;
+    z-index: 4;
+    position: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    -webkit-box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
+            box-shadow: 1px 1px 15px rgba(252, 3, 3, 0.61);
+    display: block;
+    left: 0;
+    top: 0;
+  }
+
+@supports (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
+    .header__content::after {
+      height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem );
+    }
+}
+
+@supports not (height: clamp( 5.625rem , 4.9451133144rem  +  3.3994334278vw , 7.125rem )) {
+    .header__content::after {
+      height: calc(5.625rem + 1.5 * (100vw - 20rem) / 44.125);
+    }
+}
+
   .header__menu {
     -ms-grid-column: 4;
     -ms-grid-column-span: 1;
